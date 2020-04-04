@@ -1,10 +1,9 @@
 #Naive method
-def LCSTable(x, y,m,n):
+def LCSTable(x, y,m, n):
 
     # base case
     if m == 0: return True
     if n == 0: return False
-
 
     it = iter(x)
     for y in it:
