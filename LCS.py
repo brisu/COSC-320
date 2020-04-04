@@ -1,10 +1,7 @@
 #Naive method
 def LCSTable(x, y,m, n):
 
-    # base case
-    if m == 0: return True
-    if n == 0: return False
-
+    m = len()
     it = iter(x)
     for y in it:
         print(x)
