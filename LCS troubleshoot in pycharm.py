@@ -2,46 +2,47 @@ from array import *
 
 #first formulate the table of content
 def LCSTable(x, y):
-
+    x = "accdcdbdbd"
+    y = "bdbd"
     # get length of the strings to start populating the LCS table
     m = len(x)
     n = len(y)
     # produce 2D array
         #table = [[0]*cols]*rows
+    # Alt method for table population
     table = [[0]*m]*n
+    #table = [[None]*(m+1) for i in range(n+1)]
+
     # set first element of 2d array as 0
     table[0][0] = 0
-    for i in table:
-        print(table)
+
     # attempt to set first row of table[1][m] to zero as it represents empty subsequence of y
     for i in range(1,m):
        table[0][i] = 0
+
     # attempt to set first column of table[1][m] to zero as it represents empty subsequence of x
     for i in range(1 , n):
         table[i][0] = 0
-    # table population error, it is populating but not making
-    # the first row full of zeroes
+
     for i in table:
         print(table)
+    # table population error, it is populating but not making
+    # the first row full of zeroes
+
     # this method currently doesn't work
     for i in range(1 , n):
         for j in range(1 , m):
-            if y[i] == x[i]:
+            if x[j] == y[i]:
                 table[i][j] = table[i-1][j-1] + 1
             else:
-                table[i][j] = max(table[i-1][j], table[i][j])
+                table[i][j] = max(table[i-1][j], table[i][j-1])
+    # return method returns an error that it is outside function
+
+
     for i in table:
         print(table)
-    print("This is m and n")
-    print(m)
-    print(n)
-    for i in range(1,m):
-        print(table[0][i])
-    print("Seperate m above and n below")
-    for i in range(1,n):
-        print(table[i][0])
-    # return method returns an error that it is outside function
-    return table[m][n]
+
+    return table[n][m]
 
 def printLCS(length, x, y):
     table = length
