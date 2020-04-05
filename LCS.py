@@ -1,9 +1,8 @@
 from array import *
 
 #first formulate the table of content
+# currently working with diff values for each input
 def LCSTable(x, y):
-    x = "accdcdbdbd"
-    y = "bdbd"
     # get length of the strings to start populating the LCS table
     m = len(x)
     n = len(y)
@@ -13,23 +12,11 @@ def LCSTable(x, y):
     table = [[0]*(m+1)]*(n+1)
     #table = [[None]*(m+1) for i in range(n+1)]
 
-    # set first element of 2d array as 0
-    #table[0][0] = 0
-
-    # attempt to set first row of table[1][m] to zero as it represents empty subsequence of y
-    #for i in range(1,m):
-    #   table[0][i] = 0
-
-    # attempt to set first column of table[1][m] to zero as it represents empty subsequence of x
-    #for i in range(1 , n):
-    #    table[i][0] = 0
-
     # table population error, it is populating but not making
     # the first row full of zeroes
 
-    # this method currently doesn't work
-    for i in range(0 , n):
-        for j in range(0 , m):
+    for i in range(n):
+        for j in range(m):
             if x[j] == y[i]:
                 table[i+1][j+1] = table[i][j] + 1
             else:
@@ -40,25 +27,35 @@ def LCSTable(x, y):
     return table[n][m]
 
 def printLCS(table, x, y):
-    S = []
+    S = ""
     m = len(x) # i
     n = len(y) # j
+
+    # tried to do: while table[m][n] > 0
+    # error that int is not subscriptable
     while m != 0 and n != 0:
+        # the if statement varies from source to source dunno which to use yet
         if x[m-1] == y[n-1]:
-            S.push(x[m-1])
+            S += (x[m-1])
             m = m - 1
             n = n -1
-        elif table[m-1][n] == table [m][n-1]:
+        # more error that int is not subscriptable
+        elif table[m-1][n] >= table[m][n-1]:
             m = m - 1
         else:
             n = n - 1
-    while S:
-        print(S.pop)
+    temp = S[::-1]
+    print(S)
+    #while S:
+    #    print(S.pop)
 
 test = "hellothisisatestfortheLCSSalgorithm"
 x = "accdcdbdbd"
-y = "bdbd"
+y = "ac"
 pattern = "hellothisatestfortheKMPalgrothmi"
-LCSTable(x,y)
+#LCSTable(x,y)
+#print(LCSTable(x,y))
+#LCSTable(test,pattern)
 
+# crashes as it does infinite loop for some reason
 printLCS(LCSTable(x,y), x, y)
