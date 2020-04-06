@@ -5,3 +5,10 @@ Start the Same From Location: 2347 | End at the Location: 2378
 The sentance is: "What do you mean?" faltered Mrs
 Start the Same From Location: 2380 | End at the Location: 2458
 The sentance is:  Wang, hardly believing her ears at hearing a priest speak of bestowing mercies
+Start the Same From Location: 1486 | End at the Location: 1518
+The sentance is: 
+"No mother ever had a better boy
+Start the Same From Location: 2347 | End at the Location: 2378
+The sentance is: "What do you mean?" faltered Mrs
+Start the Same From Location: 2380 | End at the Location: 2458
+The sentance is:  Wang, hardly believing her ears at hearing a priest speak of bestowing mercies
