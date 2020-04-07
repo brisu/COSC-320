@@ -1,5 +1,9 @@
-tocheck = "palgiarizing abacac palgiarizing plagiarized document ohh nono."
-pattern = "ohh nono"
+ogText = open("C://Users//acer//Documents//GitHub//COSC-320//rabinkarpstring.txt","r")
+plagText = open("C://Users//acer//Documents//GitHub//COSC-320//rabinkarpplaged.txt","r")
+
+tocheck = ogText.readline()
+pattern = "Etiam ultrices diam"
+
 IPS = []
 
 def makeIPS():
