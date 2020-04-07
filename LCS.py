@@ -3,7 +3,6 @@ from array import *
 #first formulate the table of content
 # currently working with diff values for each input
 def LCSTable(x, y):
-    # get length of the strings to start populating the LCS table
     m = len(x)
     n = len(y)
     # produce 2D array
@@ -40,22 +39,16 @@ def printLCS(table, x, y):
             m = m - 1
             n = n -1
         # more error that int is not subscriptable
-        elif table[m-1][n] >= table[m][n-1]:
+        elif (table[m-1][n]) >= (table[m][n-1]):
             m = m - 1
         else:
             n = n - 1
     temp = S[::-1]
-    print(S)
-    #while S:
-    #    print(S.pop)
+    print(temp)
 
-test = "hellothisisatestfortheLCSSalgorithm"
-x = "accdcdbdbd"
-y = "ac"
-pattern = "hellothisatestfortheKMPalgrothmi"
-#LCSTable(x,y)
-#print(LCSTable(x,y))
-#LCSTable(test,pattern)
+t = "hellothisisatestfortheLCSSalgorithm"
+x = "accdcdadbdacabdabcabdacabbdbd"
+y = "bdbd" #only work with this string
+p = "hellothisatestfortheKMPalgrothmi"
 
-# crashes as it does infinite loop for some reason
-printLCS(LCSTable(x,y), x, y)
+printLCS(LCSTable(x, y), x, y)

@@ -2,15 +2,13 @@ from array import *
 
 #first formulate the table of content
 def LCSTable(x, y):
-    x = "accdcdbdbd"
-    y = "bdbd"
     # get length of the strings to start populating the LCS table
     m = len(x)
     n = len(y)
     # produce 2D array
         #table = [[0]*cols]*rows
     # Alt method for table population
-    table = [[0]*m]*n
+    table = [[0]*(m+1)]*(n+1)
     #table = [[None]*(m+1) for i in range(n+1)]
 
     # set first element of 2d array as 0
@@ -44,13 +42,12 @@ def LCSTable(x, y):
 
     return table[n][m]
 
-def printLCS(length, x, y):
-    table = length
-    S = stack()
+def printLCS(table, x, y):
+    S = ""
     i = len(x)
     j = len(y)
     while i != 0 and j != 0:
-        if table[i-1][j-1] == table[i][j] - 1 and x[j]==j[i]:
+        if table[i-1][j-1] == (table[i][j] - 1) and x[j]==j[i]:
             S.push(x[j])
             i = i - 1
             j = j -1
@@ -65,6 +62,5 @@ test = "hellothisisatestfortheLCSSalgorithm"
 x = "accdcdbdbd"
 y = "bdbd"
 pattern = "hellothisatestfortheKMPalgrothmi"
-LCSTable(x,y)
 
 printLCS(LCSTable(x,y), x, y)
